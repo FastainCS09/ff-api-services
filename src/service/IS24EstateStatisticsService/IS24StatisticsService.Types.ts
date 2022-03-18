@@ -9,8 +9,12 @@ export namespace IS24EstateStatisticsTypes {
         totalUnreadContactRequests: number;
     }
 
+    export interface HomeOwnerRequestResponse {
+        totalHomeOwnerRequests: number;
+    }
+
     export type IS24StatisticsResponse =
         | ExposeViewsResponse
-        | ContactRequestResponse;
-
+        | ContactRequestResponse
+        | HomeOwnerRequestResponse;
 }

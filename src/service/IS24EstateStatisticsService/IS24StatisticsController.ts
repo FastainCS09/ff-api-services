@@ -3,6 +3,7 @@ import ArrayValidator from '../common/validators/ArrayValidator';
 import {IS24EstateStatisticsTypes} from "./IS24StatisticsService.Types";
 import ExposeViewsResponse = IS24EstateStatisticsTypes.ExposeViewsResponse;
 import ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse;
+import HomeOwnerRequestResponse = IS24EstateStatisticsTypes.HomeOwnerRequestResponse;
 
 
 export default class IS24StatisticsController extends APIClient {
@@ -44,4 +45,15 @@ export default class IS24StatisticsController extends APIClient {
             });
     }
 
+    /**
+     * Fetches IS24 home owner total request value
+     * @param portalId
+     */
+    async fetchHomeOwnerRequestsAmount( portalId: string) {
+        return await this.invokeApiWithErrorHandling<HomeOwnerRequestResponse>('/homeownerrequests', 'GET', {}, {
+            queryParams: {
+                portalId,
+            }
+        });
+    }
 }
